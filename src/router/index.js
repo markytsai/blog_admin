@@ -29,6 +29,10 @@ const routes = [
       path: 'tag',
       name: 'Tag',
       component: () => import('../views/container/Tag')
+    }, {
+      path: 'editor',
+      name: 'BlogEditor',
+      component: () => import('../views/container/BlogEditor')
     }]
   }
 ]

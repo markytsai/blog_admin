@@ -82,11 +82,6 @@ export default {
   color: #e3e4e7;
 }
 
-.focus {
-  background-color: #202d3d;
-  color: #e3e4e7;
-}
-
 .v-list {
   color: white !important;
 }

@@ -1,17 +1,23 @@
 <template>
-  <v-card>
+  <div>
     <Breadcrumb :items="breadItems"/>
-    <v-data-table
-      :headers="headers"
-      :items="desserts"
-      :items-per-page="5"
-      class="elevation-1"
-    ></v-data-table>
-  </v-card>
+    <v-row class="btn-group">
+      <v-btn depressed color="primary" @click="goToEditor">写博客</v-btn>
+    </v-row>
+    <v-card>
+      <v-data-table
+        :headers="headers"
+        :items="desserts"
+        :items-per-page="5"
+        class="elevation-1"
+      ></v-data-table>
+    </v-card>
+  </div>
 </template>
 
 <script>
 import Breadcrumb from '@/views/Breadcrumb'
+
 export default {
   name: 'Blog',
   components: { Breadcrumb },
@@ -228,10 +234,17 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    goToEditor () {
+      this.$router.push('/blog/editor')
+    }
   }
 }
 </script>
 
 <style scoped>
-
+.btn-group {
+  margin: 10px 0;
+}
 </style>
