@@ -1,12 +1,23 @@
 <template>
   <div>
     <v-navigation-drawer :clipped="clipped" v-model="drawer" enable-resize-watcher app class="primary">
+            <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="text-h6 admin-title">
+            博客后台
+          </v-list-item-title>
+          <v-list-item-subtitle class="admin-subtitle">
+            @caizhenya
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
       <v-list>
         <v-list-item
           v-for="item in items"
           :key="item.title"
           :to="item.path"
-          link
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -22,9 +33,9 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Topics</v-toolbar-title>
       <v-spacer></v-spacer>
-      <!--      <v-btn icon>-->
-      <!--        <v-icon>more_vert</v-icon>-->
-      <!--      </v-btn>-->
+<!--      <v-btn icon>-->
+<!--        <v-icon>dots-horizontal</v-icon>-->
+<!--      </v-btn>-->
     </v-toolbar>
 
   </div>
@@ -74,5 +85,16 @@ export default {
 .focus {
   background-color: #202d3d;
   color: #e3e4e7;
+}
+
+.v-list {
+  color: white !important;
+}
+
+.admin-title {
+  color: #ff8665 !important;
+}
+.admin-title {
+   color: rgb(216 219 222) !important;
 }
 </style>

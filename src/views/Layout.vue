@@ -8,9 +8,7 @@
         <router-view></router-view>
       </v-container>
     </div>
-    <div class="footer">
-      <Footer/>
-    </div>
+    <Footer/>
   </div>
 </template>
 
@@ -28,10 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: gray;
+.main-container {
+  margin-bottom: 50px;
 }
 </style>

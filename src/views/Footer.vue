@@ -1,17 +1,15 @@
 <template>
-  <div class="footer">
-    <div class="container" style="display: flex">
-      <span>
+  <div class="footer container container--fluid">
+      <span class="links">
         Copyright © 2019-2020 Mochoong. All Rights Reserved
         <a href="http://beian.miit.gov.cn/">浙 ICP 备 19045184 号</a>
       </span>
-      <span class="links">
+    <span class="links">
         <a href="#">关于我</a>
         <a href="#">知乎</a>
         <a href="#">微博</a>
         <a href="#">联系我</a>
       </span>
-    </div>
   </div>
 </template>
 
@@ -24,31 +22,26 @@ export default {
 <style scoped>
 
 .footer {
-  color: #999;
-  margin-top: 50px;
-}
-
-.container {
-  padding: 12px 0;
+  background-color: gray;
+  position: fixed;
+  bottom: 0;
 }
 
 .container span:first-child {
-  color: white;
+  color: #ffffff80;
 }
 
 .container a {
-  color: white;
+  color: #ffffff80;
 }
 
-.container span:nth-child(2) {
-  /*padding-right: 0;*/
-}
-
-.links a:last-child {
-  padding: 0 0 0 3px;
+.links {
+  font-size: 12px;
 }
 
 .links a {
-  padding: 0 3px;
+  font-size: 12px;
+  margin: 0 3px;
+  text-decoration: none;
 }
 </style>
