@@ -10,7 +10,12 @@
         :items="desserts"
         :items-per-page="5"
         class="elevation-1"
-      ></v-data-table>
+      >
+        <template v-slot:item.option="{ item }">
+          <v-icon small class="mr-2" @click="editBlog(item)">mdi-domain</v-icon>
+          <v-icon small @click="moveBlogToTrash(item.id)">delete</v-icon>
+        </template>
+      </v-data-table>
     </v-card>
   </div>
 </template>
@@ -61,6 +66,10 @@ export default {
         {
           text: 'Iron (%)',
           value: 'iron'
+        },
+        {
+          text: 'Operations',
+          value: 'operation'
         }
       ],
       desserts: [
@@ -70,7 +79,8 @@ export default {
           fat: 6.0,
           carbs: 24,
           protein: 4.0,
-          iron: '1%'
+          iron: '1%',
+          operation: ''
         },
         {
           name: 'Ice cream sandwich',
@@ -135,107 +145,14 @@ export default {
           carbs: 51,
           protein: 4.9,
           iron: '22%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%'
         }
       ]
     }
   },
   methods: {
+    editBlog (blog) {
+    },
+    moveBlogToTrash (id) {},
     goToEditor () {
       this.$router.push('/blog/editor')
     }
