@@ -26,7 +26,11 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  height: 100%;
+}
+
 .main-container {
-  margin-bottom: 50px;
+  height: 100%;
 }
 </style>

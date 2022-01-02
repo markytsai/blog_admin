@@ -1,7 +1,7 @@
 <template>
   <div class="editor-wrapper">
     <div class="editor-area">
-      <RichTextEditor/>
+      <RichTextEditor @getBlogContent="getBlogContent"/>
     </div>
     <div class="blog-detail-area">
       <v-row>
@@ -18,7 +18,7 @@
       </v-row>
       <v-row>
         <v-select
-          v-model="selectedTags"
+          v-model="blogParam.selectedTags"
           :items="tagOptions"
           item-text="name"
           item-value="id"
@@ -44,7 +44,7 @@
         </v-col>
         <v-col>
           <v-select
-            v-model="selectedSubCategory"
+            v-model="blogParam.selectedSubCategory"
             :items="subCategoryOptions"
             item-text="name"
             item-value="id"
@@ -56,9 +56,9 @@
         </v-col>
       </v-row>
       <v-row class="blog-btn-group">
-        <v-btn depressed color="primary">发布
+        <v-btn depressed color="primary" @click="publishBlog">发布
         </v-btn>
-        <v-btn depressed color="primary">保存
+        <v-btn depressed color="primary" @click="saveBlog">保存
         </v-btn>
       </v-row>
     </div>
@@ -106,9 +106,12 @@ export default {
         }
       ],
       selectedCategory: [],
-      selectedTags: [],
-      selectedSubCategory: [],
-      subCategoryOptions: []
+      subCategoryOptions: [],
+      blogParam: {
+        selectedTags: [],
+        selectedSubCategory: [],
+        content: ''
+      }
     }
   },
   watch: {
@@ -121,20 +124,23 @@ export default {
       }
     }
   },
-  computed: {
-    // subCategoryOptions () {
-    //   console.log(this.selectedCategory)
-    //   for (let i = 0; i < this.categoryOptions.length; i++) {
-    //     if (this.categoryOptions[i] === this.selectedCategory().id) {
-    //       return this.categoryOptions[i].subCategories
-    //     }
-    //   }
-    // }
+  methods: {
+    getBlogContent (content) {
+      this.blogParam.content = content
+    },
+    publishBlog () {
+      console.log('blog published:')
+      console.log(this.blogParam)
+    },
+    saveBlog () {
+      console.log('blog saved: ' + this.blogParam)
+    }
   }
 }
 </script>
 
 <style scoped>
+
 .editor-wrapper {
   display: flex
 }

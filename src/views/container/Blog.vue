@@ -12,7 +12,7 @@
         class="elevation-1"
       >
         <template v-slot:item.option="{ item }">
-          <v-icon small class="mr-2" @click="editBlog(item)">mdi-domain</v-icon>
+          <v-icon small class="mdi mdi-menu" @click="editBlog(item)">mdi-domain</v-icon>
           <v-icon small @click="moveBlogToTrash(item.id)">delete</v-icon>
         </template>
       </v-data-table>

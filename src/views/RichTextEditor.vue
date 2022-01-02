@@ -6,11 +6,11 @@
                   @focus="onEditorFocus($event)"
                   @ready="onEditorReady($event)">
     </quill-editor>
-<!--    <div class="limit">-->
-<!--      当前已输入-->
-<!--      <span>{{ currentChars }}</span> 个字符，您还可以输入-->
-<!--      <span>{{ remainChars }}</span> 个字符。-->
-<!--    </div>-->
+    <div class="limit">
+      当前已输入
+      <span>{{ currentChars }}</span> 个字符，您还可以输入
+      <span>{{ remainChars }}</span> 个字符。
+    </div>
   </div>
 </template>
 
@@ -38,15 +38,14 @@ export default {
   },
   methods: {
     onEditorBlur () {
-      console.log('blur', this.content)
+      this.$emit('getBlogContent', this.content)
     },
 
     onEditorFocus () {
-      console.log('focus', this.content)
     },
 
     onEditorReady () {
-      console.log('ready', this.content)
+      this.$emit('getBlogContent', this.content)
     }
   }
 }
@@ -58,8 +57,8 @@ export default {
 }
 
 .limit {
-  border: 1px solid #ccc;
   text-align: right;
+  margin-top: 80px;
 }
 
 .limit span {
