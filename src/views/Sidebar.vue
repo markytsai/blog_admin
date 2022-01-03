@@ -31,11 +31,11 @@
     </v-navigation-drawer>
     <v-toolbar fixed app :clipped-left="clipped">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>Topics</v-toolbar-title>
+      <v-toolbar-title>博客后台</v-toolbar-title>
       <v-spacer></v-spacer>
-<!--      <v-btn icon>-->
-<!--        <v-icon>dots-horizontal</v-icon>-->
-<!--      </v-btn>-->
+      <v-btn icon>
+        <v-icon>dots-horizontal</v-icon>
+      </v-btn>
     </v-toolbar>
 
   </div>
