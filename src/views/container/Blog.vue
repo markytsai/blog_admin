@@ -10,13 +10,23 @@
         :items="blogs"
         :items-per-page="5"
       >
-        <template slot="items" slot-scope="props">
-          <td class="text-xs-right">{{ props.item.title }}</td>
-          <td class="text-xs-right">{{ props.item.author }}</td>
-          <td class="text-xs-right">{{ props.item.createTime }}</td>
-          <td class="text-xs-center">
-            <v-btn>修改</v-btn>
-            修改/刪除</td>
+        <template v-slot:item="row">
+          <tr>
+            <td class="text-xs-right">{{ row.item.title }}</td>
+            <td class="text-xs-right">{{ row.item.author }}</td>
+            <td class="text-xs-right">{{ row.item.createTime }}</td>
+            <td>
+              <v-btn class="mx-2" light x-small @click="editBlog(row.item)">
+                Edit
+              </v-btn>
+              <v-btn class="mx-2" light x-small @click="publishBlog(row.item)">
+                Publish
+              </v-btn>
+              <v-btn class="mx-2" light x-small @click="moveBlogToTrash(row.item)">
+                Delete
+              </v-btn>
+            </td>
+          </tr>
         </template>
       </v-data-table>
     </v-card>
@@ -25,6 +35,7 @@
 
 <script>
 import Breadcrumb from '@/views/Breadcrumb'
+import { get, post } from '/src/request/api.js'
 
 export default {
   name: 'Blog',
@@ -78,9 +89,19 @@ export default {
     }
   },
   methods: {
-    editBlog (blog) {
+    getBlogs () {
+      get('/api/blogs')
     },
-    moveBlogToTrash (id) {
+    editBlog (blog) {
+      this.$router.push('/blog/editor')
+    },
+    publishBlog (blog) {
+      post('/api/publish/blog', { blogId: blog.blogId })
+      this.getBlogs()
+    },
+    moveBlogToTrash (blog) {
+      post('/api/deleteBlog', { blogId: blog.blogId })
+      this.getBlogs()
     },
     goToEditor () {
       this.$router.push('/blog/editor')
